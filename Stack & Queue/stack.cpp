@@ -49,45 +49,38 @@ public:
 		return top_of_stack+1;
 	}
 
-	void print_stack(){
-		if (top_of_stack == -1){
-			return;
-		}
-		for (int i = 0; i <= top_of_stack; i++){
-		 std::cout << std::right << array[i];
-		 if (i != top_of_stack){
-		 	std::cout << ",";
-		 }
-		}
+	std::string get_stack_contents() {
+	    std::ostringstream oss;
+	    oss << "[";
+	    for (int i = 0; i <= top_of_stack; i++) {
+	        oss << array[i];
+	        if (i != top_of_stack) {
+	            oss << ", ";
+	        }
+	    }
+	    oss << "]";
+	    return oss.str();
 	}
 
-	void print() {
-		std::cout<<"[";
-		print_stack();
-		std::cout <<"]";
 
-		std::cout <<
-		std::setw(20)
-		<< std::right
-		<< std::setw(10) 
-		<< top_of_stack
-		<< std::setw(10) 
-		<< SIZE()
-		<< std::endl;
-
-	}
-
+    void print() {
+        std::cout << std::setw(30) << std::left << get_stack_contents()
+                  << std::setw(10) << std::right << top_of_stack
+                  << std::setw(10) << SIZE()
+                  << std::endl;
+    }
 };
+
 
 int main(){
 	try{
 		Stack<std::string> s;
-		        // Push some values to the stack
-        std::cout <<"Stack Content"
-        << std::right
-        << std::setw(50) << "Top" 
-        << std::setw(50) << "Size\n" 
-        << std::endl;
+
+        std::cout << std::setw(38) << std::left << "Stack Content"
+                  << std::setw(10) << "Top"
+                  << std::setw(10) << "Size\n"
+                  << std::endl;
+
 
 
         s.PUSH("C");
