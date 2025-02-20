@@ -1,0 +1,32 @@
+Output Results
+./names/names-1k-unsorted.csv took 7ms to Selection Sort
+./names/names-10k-unsorted.csv took 761ms to Selection Sort
+./names/names-50k-unsorted.csv took 14789ms to Selection Sort
+./names/names-100k-unsorted.csv took 58774ms to Selection Sort
+./names/names-1k-sorted.csv took 8ms to Selection Sort
+./names/names-10k-sorted.csv took 556ms to Selection Sort
+./names/names-50k-sorted.csv took 14476ms to Selection Sort
+./names/names-100k-sorted.csv took 64585ms to Selection Sort
+./names/names-1k-unsorted.csv took 8ms to Insertion Sort
+./names/names-10k-unsorted.csv took 676ms to Insertion Sort
+./names/names-50k-unsorted.csv took 17817ms to Insertion Sort
+./names/names-100k-unsorted.csv took 72877ms to Insertion Sort
+./names/names-1k-sorted.csv took 0ms to Insertion Sort
+./names/names-10k-sorted.csv took 0ms to Insertion Sort
+./names/names-50k-sorted.csv took 2ms to Insertion Sort
+./names/names-100k-sorted.csv took 5ms to Insertion Sort
+
+
+Based on the amount of time it took to Selection Sort the given files, estimate how long it would take to Selection Sort a file with one million unsorted names?  What about one million sorted names?  Provide logical reasoning for your answers.
+	The amount of time that it would take Selection Sort to sort a given number of names sorted or unsorted regardless of size would be O(n^2).
+	But on my trusty thinkpad T440p with an i5 cpu and 8 gigs of ram taking around 58.7 seconds to selection sort a hundred thousand names we can estimate the time by doing 58.7 (100,000^2) = 5.87 (1,000,000^2) = (5,877,400 / 60) / 60 = 1.63 hours
+	With Selection Sort the .csv file being sorted or unsorted doesn't matter with this method since the algorithm does the same number of comparisons regardless.
+
+
+
+Based on the amount of time it took to Insertion Sort the given files, estimate how long it would take to Insertion Sort a file with one million unsorted names?  What about one million sorted names?  Provide logical reasoning for your answers.
+	The time for insertion sort is the same of O(n^2) but if the array is sorted it becomes O(n). So doing the same equation as before to find the time it would take to find a unsorted list of a million names would be 72877 /(100,000^2) = 7.2877 x 10^-6 x 1,000,000^2 = (7,287,700 / 60) / 60  / 60 = 33.74 hours
+	Since a sorted list would be O(n) the time to sort 100,000 values is 5ms so 5/100,000 = 5 x 10^-5 x 1,000,000 = 50 ms
+	
+
+

@@ -1,0 +1,127 @@
+Part 1- Stack (20 pts)
+Class (15 pts)
+
+In C#, Java, or C++, create a Stack class which is capable of performing operations exactly as outlined in our notes: Push, Pop, Peek, and Size.
+
+Include a method which prints the Stack in a nicely-formatted way.  It should print items in order from bottom -> top.  Finally, it should print the values for top_of_stack and Size().
+Demo (5 pts)
+
+Write a demo program which can use your Stack class to store characters in LIFO order.  Perform the following operations in this exact order.  After each operation, print the stack and its top_of_stack and Size() values using the method you created.  If your program is unable to perform an operation, print the error to the console.
+
+    Create the stack with MAX_SIZE of 5.
+    Push C
+    Push S
+    Push -
+    Push 2
+    Push 2
+    Push 1
+    Pop
+    Pop
+    Pop
+    Push 2
+    Push 2
+    Push 1
+    Pop
+    Push 3
+    Pop
+    Pop
+    Pop
+    Pop
+    Pop
+    Pop
+
+Your program's output might be formatted differently, but should match the following values exactly:
+
+Stack Contents                          Top       Size
+
+[]                                      -1        0
+[C]                                     0         1
+[C, S]                                  1         2
+[C, S, -]                               2         3
+[C, S, -, 2]                            3         4
+[C, S, -, 2, 2]                         4         5
+Cannot Push because Stack is full
+[C, S, -, 2, 2]                         4         5
+[C, S, -, 2]                            3         4
+[C, S, -]                               2         3
+[C, S]                                  1         2
+[C, S, 2]                               2         3
+[C, S, 2, 2]                            3         4
+[C, S, 2, 2, 1]                         4         5
+[C, S, 2, 2]                            3         4
+[C, S, 2, 2, 3]                         4         5
+[C, S, 2, 2]                            3         4
+[C, S, 2]                               2         3
+[C, S]                                  1         2
+[C]                                     0         1
+[]                                      -1        0
+Cannot Pop because Stack is empty
+[]                                      -1        0
+
+ 
+Part 2- Queue (20 pts)
+Class (15 pts)
+
+In C#, Java, or C++, create a Queue class which is capable of performing operations exactly as outlined in our notes: Enqueue, Dequeue, Peek, and Size.
+
+Include a method which prints the Queue in a nicely-formatted way.  It should print items in the correct order from front -> rear.  Finally, it should print the values for front, rear, and size.
+Demo (5 pts)
+
+Suppose you're writing a computer program to digitally handle guests waiting in line for a spaceship ride at an amusement park.  Their names are entered into the system and they're alerted when it's their turn to enter the ride in FIFO order.
+
+Perform the following operations in this exact order.  After each operation, print the queue and its front, rear, and size values using the method you created.  If your program is unable to perform an operation, print the error to the console.
+
+    Create the queue with MAX_SIZE of 5.
+    Enqueue "Heywood"
+    Dequeue
+    Enqueue "Kaminski"
+    Enqueue "Hunter"
+    Enqueue "Frank"
+    Enqueue "Dave"
+    Enqueue "Hal"
+    Enqueue "Heywood"
+    Dequeue
+    Dequeue
+    Dequeue
+    Enqueue "Heywood"
+    Enqueue "Chandra"
+    Dequeue
+    Dequeue
+    Dequeue
+    Dequeue
+    Dequeue
+    Enqueue "Frank"
+
+Your program's output might be formatted differently, but should match the following values exactly:
+
+Queue Contents                          Front     Rear      Size
+
+[]                                      0         0         0
+[Heywood]                               0         1         1
+[]                                      1         1         0
+[Kaminski]                              1         2         1
+[Kaminski, Hunter]                      1         3         2
+[Kaminski, Hunter, Frank]               1         4         3
+[Kaminski, Hunter, Frank, Dave]         1         0         4
+[Kaminski, Hunter, Frank, Dave, Hal]    1         1         5
+Cannot Enqueue because Queue is full
+[Kaminski, Hunter, Frank, Dave, Hal]    1         1         5
+[Hunter, Frank, Dave, Hal]              2         1         4
+[Frank, Dave, Hal]                      3         1         3
+[Dave, Hal]                             4         1         2
+[Dave, Hal, Heywood]                    4         2         3
+[Dave, Hal, Heywood, Chandra]           4         3         4
+[Hal, Heywood, Chandra]                 0         3         3
+[Heywood, Chandra]                      1         3         2
+[Chandra]                               2         3         1
+[]                                      3         3         0
+Cannot Dequeue because Queue is empty
+[]                                      3         3         0
+[Frank]                                 3         4         1
+
+ 
+Notes
+
+    You can use any language between C#, Java, and C++.  No other languages will be accepted.
+    Please ONLY submit your code files (.cs for C#, .java for Java, and .cpp and .h for C++).  DO NOT submit project files, executables, zip files, etc.
+    A different set of operations will be used to test your program, so do not hard-code any results.  Hard-coding any output will result in an automatic zero for that part.

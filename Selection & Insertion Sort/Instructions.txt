@@ -1,0 +1,187 @@
+Background
+
+We covered two O(N^2) sorting algorithms in lectures, Selection Sort and Insertion Sort.  This assignment will demonstrate the importance of time complexity and the growth of functions in practice.  You are provided with the following large datasets, filled with common surnames gathered by FiveThirtyEight (source
+
+Links to an external site.).
+
+One variant of each file is pre-sorted, the other has been shuffled.
+
+names-1k-unsorted.csv
+
+Download names-1k-unsorted.csv
+
+names-10k-unsorted.csv
+
+Download names-10k-unsorted.csv
+
+names-50k-unsorted.csv
+
+Download names-50k-unsorted.csv
+
+names-100k-unsorted.csv
+
+Download names-100k-unsorted.csv
+
+names-1k-sorted.csv
+
+Download names-1k-sorted.csv
+
+names-10k-sorted.csv
+
+Download names-10k-sorted.csv
+
+names-50k-sorted.csv
+
+Download names-50k-sorted.csv
+
+names-100k-sorted.csv
+
+Download names-100k-sorted.csv
+
+ 
+Forward
+
+This assignment will require you to compare strings in your programming language of choice.  Here is the preferred way to compare strings for lexicographical order in...
+
+C#:
+
+https://learn.microsoft.com/en-us/dotnet/api/system.string.compareto?view=net-7.0
+
+Links to an external site.
+
+Given two string values, a and b:
+
+a.CompareTo(b)
+
+will return 0 if a is identical to b, a negative value if a comes before b in lexicographical order, or a positive value if a comes after b in lexicographical order.
+
+ 
+
+Java:
+
+https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#compareTo-java.lang.String-
+
+Links to an external site.
+
+Given two string values, a and b:
+
+a.compareTo(b)
+
+will return 0 if a is identical to b, a negative value if a comes before b in lexicographical order, or a positive value if a comes after b in lexicographical order.
+
+ 
+
+C++:
+
+https://cplusplus.com/reference/string/string/compare/
+
+Links to an external site.
+
+https://learn.microsoft.com/en-us/cpp/standard-library/basic-string-class?view=msvc-170#compare
+
+Links to an external site.
+
+Given two string values, a and b:
+
+a.compare(b)
+
+will return 0 if a is identical to b, a negative value if a comes before b in lexicographical order, or a positive value if a comes after b in lexicographical order.
+
+ 
+Part 1- Selection Sort (15 pts)
+Implementation (10 pts)
+
+In C#, Java, or C++, write a function which sorts an array of strings with an exact implementation of the Selection Sort pseudocode provided in our notes.
+
+For each of the given datasets, read the data into your program and sort the strings using your created Selection Sort function.  Your program should report the amount of time (in milliseconds) it took to run this function for each file.
+
+Include your console output in a text file in your submission.  Submissions which fail to include such a text file will lose 5 points automatically.
+
+ 
+Analysis (5 pts)
+
+Answer the following questions in a text file
+
+Based on the amount of time it took to Selection Sort the given files, estimate how long it would take to Selection Sort a file with one million unsorted names?  What about one million sorted names?  Provide logical reasoning for your answers.
+
+ 
+Part 2- Insertion Sort (15 pts)
+Implementation (10 pts)
+
+In C#, Java, or C++, write a function which sorts an array of strings with an exact implementation of the Insertion Sort pseudocode provided in our notes.
+
+For each of the given datasets, read the data into your program and sort the strings using your created Insertion Sort function.  Your program should report the amount of time (in milliseconds) it took to run this function for each file.
+
+Include your console output in a text file in your submission.  Submissions which fail to include such a text file will lose 5 points automatically.
+
+ 
+Analysis (5 pts)
+
+Answer the following questions in a text file
+
+Based on the amount of time it took to Insertion Sort the given files, estimate how long it would take to Insertion Sort a file with one million unsorted names?  What about one million sorted names?  Provide logical reasoning for your answers.
+
+ 
+Test Case Templates
+
+If you'd like, you may use the template file provided for your language to set up your test cases.  This is not required, though your output should be in a similar format to the output provided by these files.
+
+Suggestion: Don't go straight into the template file- make your Selection and Insertion Sort functions in your own standalone file first, then after you've tested the functions and confirmed that they work you can copy your function into the template.
+
+ 
+
+C# Template
+
+Assignment2.cs
+
+Download Assignment2.cs
+
+ 
+
+Java Template
+
+Assignment2.java
+
+Download Assignment2.java
+
+ 
+
+C++ Template
+
+Assignment2.cpp
+
+Download Assignment2.cpp
+
+ 
+Example Output
+
+Your output should roughly follow this format (it does not have to match exactly).  Actual values have been withheld.
+
+Note: The variance between identical program runs on different computers is exactly why we use Big-O notation to compare algorithms rather than empirical figures like milliseconds.  Nonetheless, empirical data is still interesting!
+
+names-1k-unsorted.csv took ?ms to Selection Sort
+names-10k-unsorted.csv took ?ms to Selection Sort
+names-50k-unsorted.csv took ?ms to Selection Sort
+names-100k-unsorted.csv took ?ms to Selection Sort
+names-1k-sorted.csv took ?ms to Selection Sort
+names-10k-sorted.csv took ?ms to Selection Sort
+names-50k-sorted.csv took ?ms to Selection Sort
+names-100k-sorted.csv took ?ms to Selection Sort
+names-1k-unsorted.csv took ?ms to Insertion Sort
+names-10k-unsorted.csv took ?ms to Insertion Sort
+names-50k-unsorted.csv took ?ms to Insertion Sort
+names-100k-unsorted.csv took ?ms to Insertion Sort
+names-1k-sorted.csv took ?ms to Insertion Sort
+names-10k-sorted.csv took ?ms to Insertion Sort
+names-50k-sorted.csv took ?ms to Insertion Sort
+names-100k-sorted.csv took ?ms to Insertion Sort
+
+ 
+Notes
+
+    Do not include the provided .csv data files in your submission.  A different set of files will be used for grading.
+    These datasets are quite large and will take a long time to process.  Don't be frustrated if your final program takes several minutes to run to completion.
+    You can use any language between C#, Java, and C++.  No other languages will be accepted.
+    Please ONLY submit your code files (.cs for C#, .java for Java, and .cpp and .h for C++).  DO NOT submit project files, executables, zip files, etc.
+    A different set of files will be used to test your program, so do not hard-code any results.  Hard-coding any output will result in an automatic zero for that part.
+    Tutors are available to help!  Check Canvas for their posted hours.
