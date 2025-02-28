@@ -1,0 +1,141 @@
+Background
+
+Binary Search is a useful algorithm for more than simply finding the index of a key in a sorted array.  This assignment will demonstrate your ability to implement Binary Search and test your comprehension of the algorithm by applying critical thinking.
+
+ 
+Forward
+
+The test cases for this program have already been provided for you.  Do not modify any of the code in the main function nor the function signatures.  Doing so will result in an automatic zero for that part of the assignment.
+
+It is suggested that you don't start working in the provided test file immediately.  Create your own, separate project to debug your functions in first, then implement them in the test file to see if they're correct.
+
+Here are the files for each language:
+
+    Assignment3.cs 
+
+Download Assignment3.cs
+Assignment3.java
+Download Assignment3.java
+Assignment3.cpp
+
+    Download Assignment3.cpp
+
+ 
+Part 1: Frequency (15 pts)
+
+By using Binary Search to find the minimum index of a key (i.e. the smallest index in the array at which the value equals key) and the maximum index of a key (i.e. the largest index in the array at which the value equals key), we can find the number of occurrences of the key- or more simply, its frequency.
+
+Complete the minIndex and maxIndex functions in the provided program.  The number of occurrences, and the result of the countNumberOfKeys function, will be (maxIndex-minIndex+1).
+
+Simply translating the Binary Search pseudocode from class won't suffice!
+
+Finding minIndex:
+
+    Implement Binary Search with the following modifications...
+    Declare a variable called minIndex along with the usual left and right variables.  Initially, minIndex=-1
+    When you find key at index mid, do not return mid, but instead set minIndex=mid, right=mid-1, and continue the loop
+    After the while loop terminates, return minIndex (instead of -1)
+
+ 
+
+Finding maxIndex:
+
+    Apply the algorithm described above.  A simple change in logic will produce the maximum index instead.
+
+ 
+
+Finding the frequency:
+
+    Call your minIndex and maxIndex functions to get the min and max indices, respectively.  Use the formula previously described to return the number of occurrences.
+
+ 
+
+Note: It is certainly possible to obtain frequency by other, less efficient methods.  Your program's complexity should be O(log n).  If your program ends up traversing the entire array with a complexity of O(n), you will only receive partial credit.  If your program uses a built-in function, library, or data structure, you will not receive any credit.
+
+ 
+Part 2: Predecessor (15 pts)
+
+Given a set of numbers, the predecessor of a number x is the highest number in the set that is less than or equal to x.  Consider the following example set {6,9,10,13,22,31,34,88}.  The predecessor of 31 is 31.  The predecessor of 30 is 22.  The predecessor of 35 is 34.  The predecessor of 4 is undefined.
+
+The 'Predecessor Problem' has broad applications including network routing and nearest-neighbor search.  These can be used for internet traffic and Google Maps-esque navigation apps, respectively.
+
+When the provided array is sorted, we can utilize Binary Search to solve find predecessors.  Complete the predecessor function in the provided program.
+
+Finding a predecessor:
+
+    Implement Binary Search with the following modifications...
+    Declare a variable called predIndex along with left and right.  Initially, predIndex=-1
+    When A[mid]<key, then mid is a better estimate of your predecessor index; so set pred=mid, left=mid+1, and continue the loop
+    After the while loop terminates, return predIndex (instead of -1)
+
+ 
+
+Note: It is certainly possible to find predecessors by other, less efficient methods.  Your program's complexity should be O(log n).  If your program ends up traversing the entire array with a complexity of O(n), you will only receive partial credit.  If your program uses a built-in function, library, or data structure, you will not receive any credit.
+
+ 
+Part 3: Peak Finding (15 pts)
+
+Consider an array A with n unique integers (no duplicates, all numbers are unique).  The array increases until a number (the maximum) and then decreases.  Think of it like a hill or a mountain, the height increases until the peak (the maximum height), then decreases.  For example, let A[] = {2,5,7,9,13,10,8,1}.  The maximum is 13.  Utilizing Binary Search, we can find the index of the maximum value.  In the given example, the result would be 4, since A[4]=13 and 13 is the maximum number in A.
+
+Obviously, we could just traverse the entire array to look for the maximum, similar to what we did in Selection Sort.  A slightly better approach would be to scan the entire array and stop once the next value is smaller.  However, these are both O(n) solutions.  Remember that the array is already sorted- this will allow us to achieve an O(log n) solution instead!  This can be done with a modified Binary Search, where we calculate mid like usual but then check the adjacent values.
+
+Consider the example from before, A[] = {2,5,7,9,13,10,8,1}.  Initially mid=((0+7)/2)=3, so A[mid]=9.  A[mid]<A[mid+1], or 9<13, so we set left=mid+1 (left=4) and recompute mid=(left+right)/2 (mid=(4+7)/2=5).  Now, A[mid]=10.  A[mid]<A[mid-1], or 10<13.  So, we set right=mid-1 (right=4).  At this point, left==right so we can return left as the answer.
+
+Finding a peak:
+
+    Implement Binary Search with the following modifications...
+    If left equals right, then return left
+    If right equals left+1, return left or right, whichever contains the larger value (compare A[left] and A[right], NOT left and right)
+    Compute mid
+    If A[mid] is smaller than A[mid+1], then set left=mid+1
+    Else if A[mid] is smaller than A[mid-1], then set right=mid-1
+    Else, return mid
+    Repeat this process so long as left<=right
+
+ 
+
+Note: It is certainly possible to find a peak by other, less efficient methods.  Your program's complexity should be O(log n).  If your program ends up traversing the entire array with a complexity of O(n), you will only receive partial credit.  If your program uses a built-in function, library, or data structure, you will not receive any credit.
+
+ 
+Expected Output
+
+Your program's output should match the following:
+
+Part 1: Frequency
+Array is [1, 1, 3, 7, 9, 14, 14, 14, 14, 14, 14, 18, 27, 39, 39, 39]
+Frequency of 1 is 2
+Frequency of 14 is 6
+Frequency of 39 is 3
+Frequency of 7 is 1
+Frequency of 100 is 0
+Frequency of -88 is 0
+Frequency of 16 is 0
+
+Part 2: Predecessor
+Array is [1, 1, 3, 7, 9, 14, 14, 14, 14, 14, 14, 18, 27, 39, 39, 39]
+Predecessor of 1 is 1
+Predecessor of 0 is undefined
+Predecessor of 39 is 39
+Predecessor of 47 is 39
+Predecessor of 36 is 27
+Predecessor of 12 is 9
+Predecessor of 6 is 3
+
+Part 3: Peak Finding
+Array is [15, 18, 21, 25, 29, 31, 35, 23, 14, 9, 1, -1]
+Peak is 35 at index 6
+Array is [31, 35, 23, 14, 9, 1, -1]
+Peak is 35 at index 1
+Array is [31, 35, 37, 39]
+Peak is 39 at index 3
+Array is [36, 35, 32, 29]
+Peak is 36 at index 0
+
+ 
+Notes
+
+    You can use any language between C#, Java, and C++.  No other languages will be accepted.
+    Please ONLY submit your code files (.cs for C#, .java for Java, and .cpp and .h for C++).  DO NOT submit project files, executables, zip files, etc.
+    A different set of files will be used to test your program, so do not hard-code any results.  Hard-coding any output will result in an automatic zero for that part.
+    Tutors are available to help!  Check Canvas for their posted hours.
+
